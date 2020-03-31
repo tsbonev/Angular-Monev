@@ -15,4 +15,8 @@ export class CarService {
       `http://localhost:3000/cars?_sort=date&_order=desc&_limit=4`
     );
   }
+
+  getCarById(carId): Observable<Car> {
+    return this.http.get<Car>(`http://localhost:3000/cars/${carId}`);
+  }
 }

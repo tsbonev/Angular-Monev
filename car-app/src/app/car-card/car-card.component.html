@@ -1,0 +1,23 @@
+<div class="card mr-2 w-100">
+  <div class="img-container">
+    <img
+      class="card-img-top img-fluid"
+      src="{{ Car.ImageUrl }}"
+      alt="Card image cap"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ Car.brand }}, {{ Car.model }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      Engine: {{ Car.enginestats }}, {{ Car.engine }}
+    </li>
+    <li class="list-group-item">Gearbox: {{ Car.gearbox }}</li>
+    <li class="list-group-item">Horsepower: {{ Car.horsepower }}</li>
+    <li class="list-group-item">Year: {{ Car.year }}</li>
+  </ul>
+  <div class="card-body">
+    <a routerLink="/Details/{{ Car.id }}" class="card-link">Details</a>
+  </div>
+</div>
