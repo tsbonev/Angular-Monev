@@ -1,3 +1,4 @@
+import { SearchComponent } from "./search/search.component";
 import { CarDetailsComponent } from "./car-details/car-details.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "Details/:id",
     component: CarDetailsComponent
+  },
+  {
+    path: "Search",
+    component: SearchComponent
   }
 ];
 
