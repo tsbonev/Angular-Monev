@@ -1,3 +1,4 @@
+import { PublishComponent } from "./publish/publish.component";
 import { SearchComponent } from "./search/search.component";
 import { CarDetailsComponent } from "./car-details/car-details.component";
 import { NgModule } from "@angular/core";
@@ -8,24 +9,28 @@ const routes: Routes = [
   {
     path: "",
     redirectTo: "/Home",
-    pathMatch: "full"
+    pathMatch: "full",
   },
   {
     path: "Home",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "Details/:id",
-    component: CarDetailsComponent
+    component: CarDetailsComponent,
   },
   {
     path: "Search",
-    component: SearchComponent
-  }
+    component: SearchComponent,
+  },
+  {
+    path: "Publish",
+    component: PublishComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

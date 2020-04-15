@@ -1,0 +1,166 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mt-3">
+      <p class="sm">Use the form below to add publish a new car.</p>
+      <form [formGroup]="rForm" (ngSubmit)="postCar()">
+        <div class="form-group mt-3">
+          <label for="Brand">Brand</label>
+          <select
+            name="brand"
+            formControlName="brand"
+            (ngModelChange)="onBrandChange()"
+            class="form-control"
+          >
+            <option [value]="car.brand" *ngFor="let car of cars">{{
+              car.brand
+            }}</option>
+          </select>
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['brand'].valid && rForm.controls['brand'].touched
+            "
+            >* You must select a brand.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Model">Model</label>
+          <select name="Model" formControlName="model" class="form-control">
+            <option [value]="model" *ngFor="let model of models">{{
+              model
+            }}</option>
+          </select>
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['model'].valid && rForm.controls['model'].touched
+            "
+            >* You must select a model.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Engine">Engine</label>
+          <select class="form-control" formControlName="engine">
+            <option value="Diesel">Diesel</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Other">Other</option>
+          </select>
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['engine'].valid &&
+              rForm.controls['engine'].touched
+            "
+            >You must slect engine.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Gearbox">Gearbox</label
+          ><select class="form-control" formControlName="gearbox">
+            <option value="Automatic">Automatic</option>
+            <option value="Manual">Manual</option>
+            <option value="Semi-automatic">Semi-automatic</option>
+          </select>
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['gearbox'].valid &&
+              rForm.controls['gearbox'].touched
+            "
+            >You must select a gearbox type.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Year">Year</label>
+          <input class="form-control" type="text" formControlName="year" />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['year'].valid && rForm.controls['year'].touched
+            "
+            >Please enter year of production.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Enginestat">Enginestats</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="enginestats"
+          />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['enginestats'].valid &&
+              rForm.controls['enginestats'].touched
+            "
+          >
+            Please enter engine stats.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Horsepower">Horsepower</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="horsepower"
+          />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['horsepower'].valid &&
+              rForm.controls['horsepower'].touched
+            "
+          >
+            Please enter the car's horsepower.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Tyrebrand">Tyrebrand</label>
+          <input class="form-control" type="text" formControlName="tyrebrand" />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['tyrebrand'].valid &&
+              rForm.controls['tyrebrand'].touched
+            "
+          >
+            Please enter the brand of the tyres.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="Color">Color</label>
+          <input class="form-control" type="text" formControlName="color" />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['color'].valid && rForm.controls['color'].touched
+            "
+            >Please enter the color of the car.</small
+          >
+        </div>
+        <div class="form-group mt-3">
+          <label for="ImageUrl">ImageUrl</label>
+          <input class="form-control" type="text" formControlName="ImageUrl" />
+          <small
+            class="form-text text-muted text-red"
+            *ngIf="
+              !rForm.controls['ImageUrl'].valid &&
+              rForm.controls['ImageUrl'].touched
+            "
+          >
+            Please uploade an image of the car.</small
+          >
+        </div>
+        <input
+          type="submit"
+          class="btn btn-primary mt-3"
+          value="Submit Form"
+          [disabled]="!rForm.valid"
+        />
+      </form>
+    </div>
+  </div>
+</div>
