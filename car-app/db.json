@@ -335,6 +335,20 @@
       "date": 1554968643656,
       "ImageUrl": "https://storage.googleapis.com/gtspirit/uploads/2013/04/WrapStyle-GTR-1000HP-1.jpg",
       "id": 26
+    },
+    {
+      "brand": "BMW",
+      "model": "M4",
+      "engine": "Petrol",
+      "gearbox": "Automatic",
+      "year": "2020",
+      "enginestats": "4.0",
+      "horsepower": "400",
+      "tyrebrand": "Continental",
+      "color": "White",
+      "ImageUrl": "https://www.motorenvy.com/imagetag/67/main/l/Used-2015-BMW-M4.jpg",
+      "date": 1587539210322,
+      "id": 27
     }
   ],
   "allcars": [

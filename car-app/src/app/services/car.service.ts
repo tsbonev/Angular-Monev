@@ -6,7 +6,7 @@ import { Car } from "../models/car.model";
 import { AllCars } from "../models/all-cars.model";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CarService {
   constructor(private http: HttpClient) {}
@@ -49,4 +49,8 @@ export class CarService {
     );
   }
   // ternary expression
+
+  postCar(car: Car) {
+    return this.http.post(`http://localhost:3000/cars`, car);
+  }
 }

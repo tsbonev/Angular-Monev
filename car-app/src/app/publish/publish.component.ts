@@ -4,12 +4,7 @@ import { Car } from "./../models/car.model";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-publish",
@@ -64,5 +59,19 @@ export class PublishComponent implements OnInit {
     this.getCarBrandsForDropdown();
   }
 
-  postCar() {}
+  postCar() {
+    console.log(this.rForm.value);
+    this.carService
+      .postCar({ ...this.rForm.value, date: this.dateNow })
+      .subscribe((data: any[]) => {
+        if (data) {
+          console.log("It works");
+          this.NavigeteToHome();
+        }
+      });
+  }
+
+  NavigeteToHome() {
+    this.router.navigate(["Home"]);
+  }
 }
