@@ -53,4 +53,8 @@ export class CarService {
   postCar(car: Car) {
     return this.http.post(`http://localhost:3000/cars`, car);
   }
+
+  deleteCar(id: string) {
+    return this.http.delete(`http://localhost:3000/cars/` + id);
+  }
 }
