@@ -1,0 +1,21 @@
+<div class="card mr-2 w-100">
+  <div class="img-container">
+    <img
+      class="card-img-top img-fluid"
+      src="{{ Book.ImageUrl }}"
+      alt="Card image cap"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ Book.name }}, {{ Book.author }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      Genre: {{ Book.genre }}
+    </li>
+    <li class="list-group-item">Year: {{ Book.year }}</li>
+  </ul>
+  <div class="card-body">
+    <a routerLink="/Details/{{ Book.id }}" class="card-link">Details</a>
+  </div>
+</div>

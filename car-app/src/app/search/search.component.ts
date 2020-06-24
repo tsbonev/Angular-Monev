@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
-import { CarService } from "./../services/car.service";
-import { AllCars } from "./../models/all-cars.model";
-import { Car } from "./../models/car.model";
+import { BookService } from "../services/book.service";
+import { AllBooks } from "../models/all-books.model";
+import { Book } from "../models/book.model";
 
 @Component({
   selector: "app-search",
@@ -10,60 +10,35 @@ import { Car } from "./../models/car.model";
   styleUrls: ["./search.component.scss"]
 })
 export class SearchComponent implements OnInit {
-  receivedAllCars: AllCars[];
+  receivedAllBooks: AllBooks[];
   receivedModels: string[];
-  receivedCars: Car[];
+  receivedBooks: Book[];
 
-  noCarsFound: Boolean;
-  selectedBrand: string;
-  selectedModel: string;
-  selectedEngine: string;
+  noBooksFound: Boolean;
+  selectedGenre: string;
   selectedYear: string;
-  selectedGearbox: string;
+  selectedName: string;
 
-  constructor(private carService: CarService) {}
+  constructor(private bookService: BookService) {}
 
-  getCarBrandsForDropdown() {
-    this.carService
-      .getCarBrandsForDropdown()
-      .subscribe((resoponse: AllCars[]) => {
-        this.receivedAllCars = resoponse;
-        // console.log(data);
-      });
-  }
-
-  onBrandChange() {
-    this.carService
-      .getModelsForSelectedBrand(this.selectedBrand)
-      .subscribe((response: AllCars) => {
-        this.receivedModels = response[0].models;
-        // console.log(response);
-      });
-  }
-
-  getSearchedCars() {
-    this.carService
-      .getSearchedCars(
-        this.selectedBrand,
-        this.selectedModel,
-        this.selectedEngine,
-        this.selectedGearbox,
+  getSearchedBooks() {
+    this.bookService
+      .getSearchedBooks(
+        this.selectedGenre,
         this.selectedYear
       )
-      .subscribe((resoponse: Car[]) => {
+      .subscribe((resoponse: Book[]) => {
         if (resoponse.length) {
-          this.receivedCars = resoponse;
-          console.log(this.receivedCars);
-          this.noCarsFound = false;
+          this.receivedBooks = resoponse;
+          console.log(this.receivedBooks);
+          this.noBooksFound = false;
         } else {
-          console.log("No cars found");
-          this.noCarsFound = true;
-          this.receivedCars = [];
+          console.log("No books found");
+          this.noBooksFound = true;
+          this.receivedBooks = [];
         }
       });
   }
 
-  ngOnInit() {
-    this.getCarBrandsForDropdown();
-  }
+  ngOnInit() {}
 }

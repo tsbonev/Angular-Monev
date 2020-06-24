@@ -1,4 +1,4 @@
-import { CarService } from "./services/car.service";
+import { BookService } from "./services/book.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -6,8 +6,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { HttpClientModule } from "@angular/common/http";
-import { CarCardComponent } from "./car-card/car-card.component";
-import { CarDetailsComponent } from "./car-details/car-details.component";
+import { BookCardComponent } from "./book-card/book-card.component";
+import { BookDetailsComponent } from "./book-details/book-details.component";
 import { SearchComponent } from "./search/search.component";
 import { PublishComponent } from './publish/publish.component';
 
@@ -15,8 +15,8 @@ import { PublishComponent } from './publish/publish.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    CarCardComponent,
-    CarDetailsComponent,
+    BookCardComponent,
+    BookDetailsComponent,
     SearchComponent,
     PublishComponent
   ],
@@ -27,7 +27,7 @@ import { PublishComponent } from './publish/publish.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CarService],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

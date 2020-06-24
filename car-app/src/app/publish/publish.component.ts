@@ -1,6 +1,6 @@
-import { CarService } from "./../services/car.service";
-import { AllCars } from "./../models/all-cars.model";
-import { Car } from "./../models/car.model";
+import { BookService } from "../services/book.service";
+import { AllBooks } from "../models/all-books.model";
+import { Book } from "../models/book.model";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
@@ -13,56 +13,32 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class PublishComponent implements OnInit {
   rForm: FormGroup;
-  cars: AllCars[];
+  books: AllBooks[];
   models: string[];
-  Car: Car;
+  Book: Book;
   dateNow = Date.now();
 
   constructor(
     private httpClient: HttpClient,
     private fb: FormBuilder,
     private router: Router,
-    private carService: CarService
+    private bookService: BookService
   ) {
     this.rForm = this.fb.group({
-      brand: ["", Validators.required],
-      model: ["", Validators.required],
-      engine: ["", Validators.required],
-      gearbox: ["", Validators.required],
+      name: ["", Validators.required],
+      author: ["", Validators.required],
+      genre: ["", Validators.required],
       year: ["", Validators.required],
-      enginestats: ["", Validators.required],
-      horsepower: ["", Validators.required],
-      tyrebrand: ["", Validators.required],
-      color: ["", Validators.required],
       ImageUrl: ["", Validators.required],
     });
   }
 
-  onBrandChange() {
-    this.carService
-      .getModelsForSelectedBrand(this.rForm.get("brand").value)
-      .subscribe((data: any) => {
-        if (data.length) {
-          this.models = data[0].models;
-          // console.log(this.models);
-        }
-      });
-  }
+  ngOnInit() {}
 
-  getCarBrandsForDropdown() {
-    this.carService.getCarBrandsForDropdown().subscribe((data: AllCars[]) => {
-      this.cars = data;
-    });
-  }
-
-  ngOnInit() {
-    this.getCarBrandsForDropdown();
-  }
-
-  postCar() {
+  postBook() {
     console.log(this.rForm.value);
-    this.carService
-      .postCar({ ...this.rForm.value, date: this.dateNow })
+    this.bookService
+      .postBook({ ...this.rForm.value, date: this.dateNow })
       .subscribe((data: any[]) => {
         if (data) {
           console.log("It works");

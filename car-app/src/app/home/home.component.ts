@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Car } from "../models/car.model";
-import { CarService } from "../services/car.service";
+import { Book } from "../models/book.model";
+import { BookService } from "../services/book.service";
 
 @Component({
   selector: "app-home",
@@ -8,15 +8,15 @@ import { CarService } from "../services/car.service";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  Cars: Car[];
+  Books: Book[];
 
-  constructor(private carService: CarService) {}
+  constructor(private bookService: BookService) {}
 
-  getCars() {
-    this.carService.getNewestCars().subscribe((response: Car[]) => {
+  getBooks() {
+    this.bookService.getNewestBooks().subscribe((response: Book[]) => {
       if (response.length) {
-        this.Cars = response;
-        console.log(this.Cars);
+        this.Books = response;
+        console.log(this.Books);
       } else {
         console.log("Something went wrong");
       }
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCars();
-    // setTimeout(() => console.log(this.Cars), 2500);
+    this.getBooks();
+    // setTimeout(() => console.log(this.Books), 2500);
   }
 }

@@ -2,15 +2,15 @@
   <div class="row">
     <div class="parent">
       <div class="child bg-one">
-        <a class="title">Welcome to car-app</a>
+        <a class="title">Welcome to Book-app</a>
       </div>
     </div>
   </div>
   <div class="row display-flex justify-content-center">
-    <app-car-card
+    <app-book-card
       class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3"
-      *ngFor="let Car of Cars"
-      [Car]="Car"
-    ></app-car-card>
+      *ngFor="let Book of Books"
+      [Book]="Book"
+    ></app-book-card>
   </div>
 </div>

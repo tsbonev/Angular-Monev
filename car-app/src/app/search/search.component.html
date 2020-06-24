@@ -1,59 +1,19 @@
 <div class="container-fluid mt-5">
   <div class="row">
     <form class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-      <div class="form-group mt-3 ">
-        <label for="exampleInputEmail1">Brand</label>
-        <select
-          name="selectedBrand"
-          [(ngModel)]="selectedBrand"
-          (ngModelChange)="onBrandChange()"
-          #brandAfterSelectionState="ngModel"
-          class="form-control"
-          required
-        >
-          <option [value]="car.brand" *ngFor="let car of receivedAllCars">{{
-            car.brand
-          }}</option>
-        </select>
-        <small id="emailHelp" class="form-text text-muted"
-          >* Selecting a car brand is required</small
-        >
-      </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Model</label>
-        <select name="brands" [(ngModel)]="selectedModel" class="form-control">
-          <option value="">All models</option>
-          <option [value]="model" *ngFor="let model of receivedModels">{{
-            model
-          }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Engine</label>
+        <label for="exampleInputPassword1">Genre</label>
         <select
-          name="engines"
-          [(ngModel)]="selectedEngine"
+          name="genres"
+          [(ngModel)]="selectedGenre"
           class="form-control"
         >
-          <option value="">All types</option>
-          <option value="Diesel">Diesel</option>
-          <option value="Petrol">Petrol</option>
-          <option value="Electric">Electric</option>
-          <option value="Hybrid">Hybrid</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Gearbox</label>
-        <select
-          name="gearbox"
-          [(ngModel)]="selectedGearbox"
-          class="form-control"
-        >
-          <option value="">All types</option>
-          <option value="Automatic">Automatic</option>
-          <option value="Manual">Manual</option>
-          <option value="Semi-automatic">Semi-automatic</option>
+          <option value="">All genres</option>
+          <option value="Horror">Horror</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
         </select>
       </div>
       <div class="form-group">
@@ -67,10 +27,20 @@
           placeholder="Enter year"
         />
       </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Name</label>
+        <input
+          type="text"
+          class="txt"
+          name="item"
+          [(ngModel)]="selectedName"
+          class="form-control"
+          placeholder="Enter name"
+        />
+      </div>
       <button
-        [disabled]="brandAfterSelectionState.invalid"
         type="button"
-        (click)="getSearchedCars()"
+        (click)="getSearchedBooks()"
         class="btn btn-primary"
       >
         Search
@@ -78,19 +48,19 @@
     </form>
 
     <div
-      *ngIf="noCarsFound"
+      *ngIf="noBooksFound"
       class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-9 mt-4"
     >
       <div class="alert alert-info" role="alert">
-        No cars found related to your search.
+        No books found related to your search.
       </div>
     </div>
 
-    <app-car-card
-      *ngFor="let Car of receivedCars"
-      [Car]="Car"
+    <app-book-card
+      *ngFor="let Book of receivedBooks"
+      [Book]="Book"
       class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3"
     >
-    </app-car-card>
+    </app-book-card>
   </div>
 </div>

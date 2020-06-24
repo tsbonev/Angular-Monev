@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "car-app": {
+    "book-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/car-app",
+            "outputPath": "dist/book-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "car-app:build"
+            "browserTarget": "book-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "car-app:build:production"
+              "browserTarget": "book-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "car-app:build"
+            "browserTarget": "book-app:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "car-app:serve"
+            "devServerTarget": "book-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "car-app:serve:production"
+              "devServerTarget": "book-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "car-app"
+  "defaultProject": "book-app"
 }
